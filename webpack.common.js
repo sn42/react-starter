@@ -6,6 +6,16 @@ module.exports = {
   entry: {
     index: "./src/index.js"
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, "src"),
+        use: ["babel-loader"]
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
